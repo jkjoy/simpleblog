@@ -28,7 +28,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu
+    runs-on: ubuntu-22.0.4
     steps:
       - name: 检出代码
         uses: actions/checkout@v3
