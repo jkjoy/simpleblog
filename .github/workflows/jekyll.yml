@@ -28,10 +28,17 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: 检出代码
         uses: actions/checkout@v3
+
+      - name: 安装 ruby-build
+        run: |
+          git clone https://github.com/rbenv/ruby-build.git
+          sudo mkdir -p /usr/local/ruby-build
+          sudo ./ruby-build/install.sh
+          echo "PATH=$PATH:/usr/local/ruby-build/bin" >> $GITHUB_ENV
 
       - name: 安装 Ruby
         run: |
